@@ -1,0 +1,28 @@
+{
+  "name": "create-react-app",
+  "version": "4.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "4.11.2",
+    "@material-ui/pickers": "3.3.10",
+    "clsx": "latest",
+    "lodash.merge": "4.6.2",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "latest",
+    "react-tab": "1.0.0",
+    "react-table": "7.6.3",
+    "react-zoom-pan-pinch": "1.6.1",
+    "recharts": "2.0.8",
+    "rrule": "2.6.8",
+    "styled-components": "5.2.1"
+  }
+}
