@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useTable, useBlockLayout } from "react-table";
+import { useMemo } from "react";
 
 const Styles = styled.div`
   padding: 1rem;
@@ -9,6 +10,8 @@ const Styles = styled.div`
     display: inline-block;
     border-spacing: 0;
     border: 1px solid black;
+    text-align: center;
+    font-size: 11px;
 
     .tr {
       :last-child {
@@ -21,7 +24,6 @@ const Styles = styled.div`
     .th,
     .td {
       margin: 0;
-      padding: 0.5rem;
       border-bottom: 1px solid black;
       border-right: 1px solid black;
 
@@ -33,18 +35,27 @@ const Styles = styled.div`
 `;
 
 function Table({ tableData }) {
-  const columns = React.useMemo(
+  const defaultColumn = useMemo(
+    () => ({
+      width: 80
+    }),
+    []
+  );
+
+  const columns = useMemo(
     () => [
       {
         Header: "April",
         columns: [
           {
             Header: "日",
-            accessor: "apr.day"
+            accessor: "apr.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "apr.dayofweek"
+            Header: "曜",
+            accessor: "apr.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -57,11 +68,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "may.day"
+            accessor: "may.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "may.dayofweek"
+            Header: "曜",
+            accessor: "may.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -74,11 +87,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "jun.day"
+            accessor: "jun.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "jun.dayofweek"
+            Header: "曜",
+            accessor: "jun.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -91,11 +106,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "jul.day"
+            accessor: "jul.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "jul.dayofweek"
+            Header: "曜",
+            accessor: "jul.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -108,11 +125,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "aug.day"
+            accessor: "aug.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "aug.dayofweek"
+            Header: "曜",
+            accessor: "aug.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -125,11 +144,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "sep.day"
+            accessor: "sep.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "sep.dayofweek"
+            Header: "曜",
+            accessor: "sep.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -142,11 +163,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "oct.day"
+            accessor: "oct.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "oct.dayofweek"
+            Header: "曜",
+            accessor: "oct.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -159,11 +182,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "nov.day"
+            accessor: "nov.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "nov.dayofweek"
+            Header: "曜",
+            accessor: "nov.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -176,11 +201,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "dec.day"
+            accessor: "dec.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "dec.dayofweek"
+            Header: "曜",
+            accessor: "dec.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -193,11 +220,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "jan.day"
+            accessor: "jan.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "jan.dayofweek"
+            Header: "曜",
+            accessor: "jan.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -210,11 +239,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "feb.day"
+            accessor: "feb.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "feb.dayofweek"
+            Header: "曜",
+            accessor: "feb.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -227,11 +258,13 @@ function Table({ tableData }) {
         columns: [
           {
             Header: "日",
-            accessor: "mar.day"
+            accessor: "mar.day",
+            width: 30
           },
           {
-            Header: "曜日",
-            accessor: "mar.dayofweek"
+            Header: "曜",
+            accessor: "mar.dayofweek",
+            width: 30
           },
           {
             Header: "訪問計画",
@@ -253,7 +286,8 @@ function Table({ tableData }) {
   } = useTable(
     {
       columns,
-      data: tableData
+      data: tableData,
+      defaultColumn
     },
     useBlockLayout
   );
@@ -261,7 +295,6 @@ function Table({ tableData }) {
   // Render the UI for your table
   return (
     <Styles>
-      return (
       <div {...getTableProps()} className="table">
         <div>
           {headerGroups.map((headerGroup) => (
@@ -292,7 +325,6 @@ function Table({ tableData }) {
           })}
         </div>
       </div>
-      )
     </Styles>
   );
 }

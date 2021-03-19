@@ -84,9 +84,6 @@ const useStyles = makeStyles((theme) => ({
   },
   fixedHeight: {
     height: 240
-  },
-  calendar: {
-    padding: theme.spacing(2)
   }
 }));
 
