@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useTable } from "react-table";
+import { useTable, useBlockLayout } from "react-table";
 
 const Styles = styled.div`
   table {
@@ -246,39 +246,49 @@ function Table({ tableData }) {
     headerGroups,
     rows,
     prepareRow
-  } = useTable({
-    columns,
-    data: tableData
-  });
+  } = useTable(
+    {
+      columns,
+      data: tableData
+    },
+    useBlockLayout
+  );
 
   // Render the UI for your table
   return (
     <Styles>
-      <table {...getTableProps()}>
-        <thead>
+      return (
+      <div {...getTableProps()} className="table">
+        <div>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <div {...headerGroup.getHeaderGroupProps()} className="tr">
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <div {...column.getHeaderProps()} className="th">
+                  {column.render("Header")}
+                </div>
               ))}
-            </tr>
+            </div>
           ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+        </div>
+
+        <div {...getTableBodyProps()}>
+          {rows.map((row, i) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <div {...row.getRowProps()} className="tr">
                 {row.cells.map((cell) => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <div {...cell.getCellProps()} className="td">
+                      {cell.render("Cell")}
+                    </div>
                   );
                 })}
-              </tr>
+              </div>
             );
           })}
-        </tbody>
-      </table>
+        </div>
+      </div>
+      )
     </Styles>
   );
 }
