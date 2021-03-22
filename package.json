@@ -12,17 +12,31 @@
     "@material-ui/core": "latest",
     "@material-ui/icons": "4.11.2",
     "@material-ui/pickers": "3.3.10",
+    "bootstrap": "^4.6.0",
     "clsx": "latest",
     "lodash.merge": "4.6.2",
     "react": "latest",
+    "react-bootstrap": "^1.5.2",
     "react-dom": "latest",
     "react-router-dom": "5.2.0",
+    "react-rrule-generator": "^1.2.0",
     "react-scripts": "latest",
     "react-tab": "1.0.0",
     "react-table": "7.6.3",
-    "react-zoom-pan-pinch": "1.6.1",
     "recharts": "2.0.8",
     "rrule": "2.6.8",
     "styled-components": "5.2.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

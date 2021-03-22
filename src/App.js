@@ -20,6 +20,7 @@ import PeopleIcon from "@material-ui/icons/People";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ALTs from "./ALTs";
 import Schools from "./Schools";
+import ALTsCopy from "./ALTs copy";
 
 const drawerWidth = 240;
 
@@ -188,15 +189,17 @@ export default function App() {
                 />
               </ListItem>
             </Link>
+            <Link style={{ textDecoration: "none" }} to="/ALTs copy">
             <ListItem button>
               <ListItemIcon>
                 <PeopleIcon />
               </ListItemIcon>
               <ListItemText
                 className={classes.listitemtext}
-                primary="Kindergarten"
+                primary="ALTs copy"
               />
             </ListItem>
+            </Link>
           </div>
           <Divider />
         </Drawer>
@@ -209,6 +212,9 @@ export default function App() {
               </Route>
               <Route path="/Schools">
                 <Schools />
+              </Route>
+              <Route path="/ALTs copy">
+                <ALTsCopy />
               </Route>
             </Switch>
           </Container>

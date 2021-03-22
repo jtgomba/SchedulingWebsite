@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-export default function App() {
+export default function School() {
   return (
-    <div className="App">
+    <div className="School">
       <header>
         <h1>Schools</h1>
       </header>

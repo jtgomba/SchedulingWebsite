@@ -3,15 +3,15 @@ import styled from "styled-components";
 import { useTable, useBlockLayout } from "react-table";
 import { useMemo } from "react";
 
-const Styles = styled.div`
-  padding: 1rem;
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+import BTable from 'react-bootstrap/Table';
+
+const Styles = styled.div`
   .table {
-    display: inline-block;
-    border-spacing: 0;
-    border: 1px solid black;
     text-align: center;
     font-size: 11px;
+    font-family: Calibri, sans-serif;
 
     .tr {
       :last-child {
@@ -34,10 +34,12 @@ const Styles = styled.div`
   }
 `;
 
+
 function Table({ tableData }) {
   const defaultColumn = useMemo(
     () => ({
-      width: 80
+      minWidth: 30,
+      maxWidth: 120
     }),
     []
   );
@@ -295,36 +297,35 @@ function Table({ tableData }) {
   // Render the UI for your table
   return (
     <Styles>
-      <div {...getTableProps()} className="table">
-        <div>
-          {headerGroups.map((headerGroup) => (
-            <div {...headerGroup.getHeaderGroupProps()} className="tr">
-              {headerGroup.headers.map((column) => (
-                <div {...column.getHeaderProps()} className="th">
-                  {column.render("Header")}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        <div {...getTableBodyProps()}>
-          {rows.map((row, i) => {
-            prepareRow(row);
-            return (
-              <div {...row.getRowProps()} className="tr">
-                {row.cells.map((cell) => {
-                  return (
-                    <div {...cell.getCellProps()} className="td">
-                      {cell.render("Cell")}
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+    <BTable striped bordered hover size="sm" {...getTableProps()}>
+      <thead>
+        {headerGroups.map(headerGroup => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map(column => (
+              <th {...column.getHeaderProps()}>
+                {column.render('Header')}
+              </th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody>
+        {rows.map((row, i) => {
+          prepareRow(row)
+          return (
+            <tr {...row.getRowProps()}>
+              {row.cells.map(cell => {
+                return (
+                  <td {...cell.getCellProps()}>
+                    {cell.render('Cell')}
+                  </td>
+                )
+              })}
+            </tr>
+          )
+        })}
+      </tbody>
+    </BTable>
     </Styles>
   );
 }
